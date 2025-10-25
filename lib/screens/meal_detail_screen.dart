@@ -25,6 +25,7 @@ class MealDetailScreen extends StatelessWidget {
           ),
         ],
       ),
+      
       body: SingleChildScrollView(
         child: Column(
           children: [

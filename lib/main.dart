@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:meals/screens/categories_screen.dart';
 import 'package:meals/screens/tabs_screens.dart';
 
 void main() {
@@ -9,27 +8,33 @@ void main() {
   final theme = ThemeData(
     useMaterial3: true,
     colorScheme: ColorScheme.fromSeed(
-      seedColor: Colors.pink,
+      seedColor: const Color.fromARGB(255, 30, 37, 233),
       brightness: Brightness.light,
     ),
     textTheme: GoogleFonts.latoTextTheme(),
   );
 }
 
+var darkColorScheme = ColorScheme.fromSeed(
+  seedColor: const Color.fromARGB(255, 31, 11, 181),
+);
 final ThemeData darkTheme = ThemeData(
   brightness: Brightness.dark,
-  primaryColor: Colors.pink,
+  primaryColor: const Color.fromARGB(255, 18, 7, 72),
   scaffoldBackgroundColor: Colors.black,
-  appBarTheme: const AppBarTheme(
-    backgroundColor: Colors.blue,
+  appBarTheme: AppBarTheme(
+    backgroundColor: darkColorScheme.onPrimaryContainer,
     foregroundColor: Colors.white,
     elevation: 0,
+  ),
+  drawerTheme: DrawerThemeData(
+    backgroundColor: darkColorScheme.onPrimaryContainer,
   ),
   textTheme: const TextTheme(
     bodyLarge: TextStyle(color: Colors.black87),
     bodyMedium: TextStyle(color: Colors.black87),
     titleLarge: TextStyle(
-      color: Colors.black,
+      color: Color.fromARGB(255, 255, 255, 255),
       fontWeight: FontWeight.bold,
     ),
   ),
