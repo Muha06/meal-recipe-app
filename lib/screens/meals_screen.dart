@@ -12,6 +12,7 @@ class MealsScreen extends StatelessWidget {
 
   final String? title;
   final List<Meal> meals;
+  //i need a fcn that accepts a meal
   final void Function(Meal meal) onToggleFav;
 
   @override

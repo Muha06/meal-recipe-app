@@ -24,6 +24,20 @@ class _TabsScreenState extends State<TabsScreens> {
   Map<Filters, bool> _selectedFilters = kInitialFilters;
 
   int selectedIndex = 0;
+  final List<Meal> favouritesMeals = [];
+
+  void togglefavoriteStatus(Meal meal) {
+    final isExisting = favouritesMeals.contains(meal);
+    if (isExisting) {
+      setState(() {
+        favouritesMeals.remove(meal);
+      });
+    } else {
+      setState(() {
+        favouritesMeals.add(meal);
+      });
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -48,20 +62,6 @@ class _TabsScreenState extends State<TabsScreens> {
       }
       return true;
     }).toList();
-
-    final List<Meal> favouritesMeals = [];
-    void togglefavoriteStatus(Meal meal) {
-      final isExisting = favouritesMeals.contains(meal);
-      if (isExisting) {
-        setState(() {
-          favouritesMeals.remove(meal);
-        });
-      } else {
-        setState(() {
-          favouritesMeals.add(meal);
-        });
-      }
-    }
 
     //catgories screen
     Widget activePage = CategoriesScreen(
