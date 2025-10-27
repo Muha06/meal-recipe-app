@@ -1,34 +1,49 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:meals/models/meals.dart';
+import 'package:meals/providers/favourites_provider.dart';
 import 'package:meals/widgets/meal_item.dart';
 
-class MealsScreen extends StatelessWidget {
+class MealsScreen extends ConsumerWidget {
   const MealsScreen({
     super.key,
     required this.meals,
     this.title,
-    required this.onToggleFav,
+    this.isFavScreen = false,
   });
 
   final String? title;
   final List<Meal> meals;
-  //i need a fcn that accepts a meal
-  final void Function(Meal meal) onToggleFav;
+  final bool isFavScreen;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     Widget maincontent = const Center(child: Text('Nothing'));
 
     if (meals.isNotEmpty) {
       maincontent = ListView.builder(
         itemCount: meals.length,
         itemBuilder: (ctx, idx) {
-          return MealItem(meal: meals[idx], onToggleFav: onToggleFav);
+          return MealItem(meal: meals[idx]);
         },
       );
     }
     return Scaffold(
-      appBar: AppBar(title: Text(title!)),
+      appBar: AppBar(
+        title: Text(title!),
+        actions: [
+          if (isFavScreen)
+            TextButton(
+              onPressed: () {
+                ref.read(favoritesMealsProvider.notifier).clearFavMeals();
+              },
+              child: const Text(
+                "Clear List",
+                style: TextStyle(fontWeight: FontWeight.bold),
+              ),
+            ),
+        ],
+      ),
       body: maincontent,
     );
   }

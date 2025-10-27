@@ -32,14 +32,11 @@ class MealsDrawer extends StatelessWidget {
                 const SizedBox(width: 8),
                 Text(
                   'Cooking Up!',
-                  style: Theme.of(context).textTheme.titleLarge!
-                      .copyWith(
-                        color: Theme.of(
-                          context,
-                        ).colorScheme.onPrimary,
-                        fontWeight: FontWeight.bold,
-                        fontSize: 28,
-                      ),
+                  style: Theme.of(context).textTheme.titleLarge!.copyWith(
+                    color: Theme.of(context).colorScheme.onPrimary,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 28,
+                  ),
                 ),
               ],
             ),
@@ -52,11 +49,10 @@ class MealsDrawer extends StatelessWidget {
             ),
             title: Text(
               'Meals',
-              style: Theme.of(context).textTheme.titleMedium!
-                  .copyWith(
-                    color: Theme.of(context).colorScheme.onSurface,
-                    fontSize: 20,
-                  ),
+              style: Theme.of(context).textTheme.titleMedium!.copyWith(
+                color: Theme.of(context).colorScheme.onSurface,
+                fontSize: 20,
+              ),
             ),
             onTap: () {
               onselectTile('Meals');
@@ -71,11 +67,10 @@ class MealsDrawer extends StatelessWidget {
             ),
             title: Text(
               'Filter',
-              style: Theme.of(context).textTheme.titleMedium!
-                  .copyWith(
-                    color: Theme.of(context).colorScheme.onSurface,
-                    fontSize: 20,
-                  ),
+              style: Theme.of(context).textTheme.titleMedium!.copyWith(
+                color: Theme.of(context).colorScheme.onSurface,
+                fontSize: 20,
+              ),
             ),
             onTap: () {
               onselectTile('Filter');

@@ -52,10 +52,7 @@ class _FiltersScreenState extends State<FiltersScreen> {
                   _glutenFreeChecked = newvalue;
                 });
               },
-              contentPadding: const EdgeInsets.only(
-                left: 18,
-                right: 18,
-              ),
+              contentPadding: const EdgeInsets.only(left: 18, right: 18),
               //the round thumb
               activeThumbColor: Theme.of(
                 context,
@@ -77,10 +74,7 @@ class _FiltersScreenState extends State<FiltersScreen> {
                   _lactoseFreeChecked = newvalue;
                 });
               },
-              contentPadding: const EdgeInsets.only(
-                left: 18,
-                right: 18,
-              ),
+              contentPadding: const EdgeInsets.only(left: 18, right: 18),
               //the round thumb
               activeThumbColor: Theme.of(
                 context,
@@ -102,10 +96,7 @@ class _FiltersScreenState extends State<FiltersScreen> {
                   _vegetarianChecked = newvalue;
                 });
               },
-              contentPadding: const EdgeInsets.only(
-                left: 18,
-                right: 18,
-              ),
+              contentPadding: const EdgeInsets.only(left: 18, right: 18),
               //the round thumb
               activeThumbColor: Theme.of(
                 context,
@@ -127,10 +118,7 @@ class _FiltersScreenState extends State<FiltersScreen> {
                   _veganChecked = newvalue;
                 });
               },
-              contentPadding: const EdgeInsets.only(
-                left: 18,
-                right: 18,
-              ),
+              contentPadding: const EdgeInsets.only(left: 18, right: 18),
               //the round thumb
               activeThumbColor: Theme.of(
                 context,

@@ -5,14 +5,9 @@ import 'package:meals/widgets/meal_item_details.dart';
 import 'package:transparent_image/transparent_image.dart';
 
 class MealItem extends StatelessWidget {
-  const MealItem({
-    super.key,
-    required this.meal,
-    required this.onToggleFav,
-  });
+  const MealItem({super.key, required this.meal});
 
   final Meal meal;
-  final void Function(Meal meal) onToggleFav;
 
   @override
   Widget build(BuildContext context) {
@@ -22,10 +17,7 @@ class MealItem extends StatelessWidget {
           context,
           MaterialPageRoute(
             builder: (ctx) {
-              return MealDetailScreen(
-                meal: meal,
-                onToggleFav: onToggleFav,
-              );
+              return MealDetailScreen(meal: meal);
             },
           ),
         );
@@ -56,10 +48,7 @@ class MealItem extends StatelessWidget {
                 height: 80,
                 decoration: const BoxDecoration(
                   gradient: LinearGradient(
-                    colors: [
-                      Color.fromARGB(136, 41, 41, 41),
-                      Colors.black,
-                    ],
+                    colors: [Color.fromARGB(136, 41, 41, 41), Colors.black],
                     begin: Alignment.topCenter,
                     end: Alignment.bottomCenter,
                   ),
@@ -71,10 +60,7 @@ class MealItem extends StatelessWidget {
                       textAlign: TextAlign.center,
                       softWrap: true,
                       overflow: TextOverflow.ellipsis,
-                      style: const TextStyle(
-                        color: Colors.white,
-                        fontSize: 20,
-                      ),
+                      style: const TextStyle(color: Colors.white, fontSize: 20),
                     ),
                     const SizedBox(height: 10),
                     Row(

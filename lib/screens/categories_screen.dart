@@ -8,11 +8,9 @@ import 'package:meals/models/meals.dart';
 class CategoriesScreen extends StatelessWidget {
   const CategoriesScreen({
     super.key,
-    required this.onToggleFav,
     required this.userFilteredMeals,
   });
 
-  final void Function(Meal meal) onToggleFav;
   final List<Meal> userFilteredMeals;
 
   void selectCategory(context, Category category) {
@@ -26,7 +24,6 @@ class CategoriesScreen extends StatelessWidget {
         builder: (ctx) => MealsScreen(
           meals: filteredMeals,
           title: category.title,
-          onToggleFav: onToggleFav,
         ),
       ),
     );

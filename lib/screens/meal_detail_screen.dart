@@ -1,31 +1,37 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:meals/models/meals.dart';
+import 'package:meals/providers/favourites_provider.dart';
 
-class MealDetailScreen extends StatelessWidget {
-  const MealDetailScreen({
-    super.key,
-    required this.meal,
-    required this.onToggleFav,
-  });
+class MealDetailScreen extends ConsumerWidget {
+  const MealDetailScreen({super.key, required this.meal});
 
   final Meal meal;
-  final void Function(Meal meal) onToggleFav;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final favoriteMeals = ref.watch(favoritesMealsProvider);
+    bool isFavMeal = favoriteMeals.contains(meal);
+
     return Scaffold(
       appBar: AppBar(
         title: Text(meal.title),
         actions: [
           IconButton(
             onPressed: () {
-              onToggleFav(meal);
+              //access favoriteMealsprovider to add/remove meal to favorites
+              ref
+                  .read(favoritesMealsProvider.notifier)
+                  .toggleFavoriteMeal(meal);
             },
-            icon: const Icon(Icons.star),
+            icon: Icon(
+              Icons.favorite,
+              color: isFavMeal ? Colors.red : Colors.grey[500],
+            ),
           ),
         ],
       ),
-      
+
       body: SingleChildScrollView(
         child: Column(
           children: [
@@ -39,28 +45,21 @@ class MealDetailScreen extends StatelessWidget {
             Text(
               'Ingredients',
               style: Theme.of(context).textTheme.titleLarge!.copyWith(
-                color: Theme.of(
-                  context,
-                ).colorScheme.onPrimaryContainer,
+                color: Theme.of(context).colorScheme.onPrimaryContainer,
                 fontWeight: FontWeight.bold,
               ),
             ),
             const SizedBox(height: 14),
 
             for (final ingredient in meal.ingredients)
-              Text(
-                ingredient,
-                style: Theme.of(context).textTheme.bodyMedium,
-              ),
+              Text(ingredient, style: Theme.of(context).textTheme.bodyMedium),
 
             const SizedBox(height: 14),
 
             Text(
               'Steps',
               style: Theme.of(context).textTheme.titleLarge!.copyWith(
-                color: Theme.of(
-                  context,
-                ).colorScheme.onPrimaryContainer,
+                color: Theme.of(context).colorScheme.onPrimaryContainer,
                 fontWeight: FontWeight.bold,
               ),
             ),
