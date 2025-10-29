@@ -35,10 +35,10 @@ class _TabsScreenState extends ConsumerState<TabsScreens> {
       );
     }
 
-    void setScreen(String identifier) async {
+    void setScreen(String identifier) {
       if (identifier == 'Filter') {
         Navigator.pop(context);
-        await Navigator.push(
+        Navigator.push(
           context,
           MaterialPageRoute(builder: (ctx) => const FiltersScreen()),
         );
